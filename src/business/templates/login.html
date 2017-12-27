@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+    <title>BLOCKCHAIN-BASED EDUCATIONAL CERTIFICATES</title>
+    <!-- Bootstrap -->
+    <link href="../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/login.css" rel="stylesheet" type="text/css">
+    <link rel="../static/stylesheet" href="css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+
+  </head>
+  <body>
+      <div class="content">
+
+                  <div class="main">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-sm-8 col-sm-offset-2 text">
+                                  <h1>BLOCKCHAIN-BASED EDUCATIONAL CERTIFICATES</h1>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-6 col-sm-offset-3 form-box">
+                              	<div class="form-top">
+                              		<div class="form-top-left">
+                              			<h3>Login in</h3>
+                                  		<p>Please enter your username and password to log in:</p>
+                              		</div>
+                              		<div class="form-top-right">
+                              			<i class="fa fa-lock"></i>
+                              		</div>
+                                  </div>
+                                  <div class="form-bottom">
+      			                    <form role="form" action="" method="post" class="login-form">
+      			                    	<div class="form-group">
+      			                    		<label class="sr-only" for="form-username">Username</label>
+      			                        	<input type="text" value = "{{request.form.username}}" name="username" placeholder="Username..." class="form-username form-control" id="username">
+      			                        </div>
+      			                        <div class="form-group">
+      			                        	<label class="sr-only" for="form-password">Password</label>
+      			                        	<input type="password"  name="password" placeholder="Password..." class="form-password form-control" id="password">
+      			                        </div>
+      			                        <button type="submit" class="btn btn-info">Sign in!</button>
+      			                    </form>
+      			                    {% if error %}
+										<p style="display:none; color:red;">Error:</p> {{ error }}
+									{% endif %}
+      		                    </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
+
+<footer class="mains" style="background:#0a1529 !important">
+
+    <p class="copyright text-center">© 2017 <a href="http://blockcerts.ehcoo.com/">UOB BLOCKCHAIN LAB</a>. All Rights Reserved. <br>
+    </p>
+  </footer>
+
+<script src="../static/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

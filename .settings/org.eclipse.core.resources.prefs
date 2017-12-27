@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/config/__init__.py=utf-8
+encoding//src/config/conf.py=utf-8
+encoding//src/mongo/__init__.py=utf-8
+encoding//src/mongo/mongo.py=utf-8
+encoding//src/start_app.py=utf-8
+encoding//src/utils/crypto_utils.py=utf-8
+encoding//src/utils/exceptions.py=utf-8
+encoding/<project>=UTF-8

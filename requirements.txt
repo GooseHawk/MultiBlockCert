@@ -1,0 +1,4 @@
+Flask==0.12
+pymongo==3.4.0
+requests==2.13.0
+importlib==1.0.4

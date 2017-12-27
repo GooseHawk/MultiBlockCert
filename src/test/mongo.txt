@@ -1,0 +1,75 @@
+db.certificates.insert(
+[{
+    "r_id" : "001",
+    "issuer": "University of Birmingham",
+    "recipient":"Rujia Li",
+    "issuedOn": "2017-03-12",
+    "isHashed":"0",
+    "certificate": {
+        "id": "uobc00000001",
+        "language": "English",
+        "type": "Certificate",
+        "image": "data:image/png;base64,this is a test image",
+        "description": "Advanced Computer Science MSc for Rujia Li",
+        "name": "Advanced Computer Science MSc",
+        "issuer": {
+            "url": "http://www.birmingham.ac.uk",
+            "type": "Issuer",
+            "name": "University of Birmingham",
+            "email": "uob@bham.ac.uk",
+            "id": "uobi00000001",
+            "signer_pub_key": "http://www.birmingham.ac.uk/keys/bham_public_key.asc"
+        },
+        "recipient": {
+            "revocationKey": "18H4xq3jFfhis7Jn91c1vieXFYKx3LsPnJ",
+            "givenName": "Rujia",
+            "familyName": "Li",
+            "identity": "rxl635@student.bham.ac.uk",
+            "type": "email"
+        },
+        "assertion": {
+            "image:signature": "data:image/png;base64,this is a test image",
+            "type": "Assertion",
+            "id": "http://www.birmingham.ac.uk/assertionId",
+            "issuedOn": "2017-03-11"
+        }
+    },
+    "receipt": {}
+},
+{
+    "r_id" : "002",
+    "issuer": "University of Birmingham",
+    "recipient":"Yifan Wu",
+    "issuedOn": "2017-03-12",
+    "isHashed":"0",
+    "certificate": {
+        "id": "uobc00000002",
+        "language": "English",
+        "type": "Certificate",
+        "image": "data:image/png;base64,this is a test image",
+        "description": "Computer Science MSc for Yifan Wu",
+        "name": "Computer Science MSc",
+        "issuer": {
+            "url": "http://www.birmingham.ac.uk",
+            "type": "Issuer",
+            "name": "University of Birmingham",
+            "email": "uob@bham.ac.uk",
+            "id": "uobi00000002",
+            "signer_pub_key": "http://www.birmingham.ac.uk/keys/bham_public_key.asc"
+        },
+        "recipient": {
+            "revocationKey": "19DJQJFteVDokLHYkcYnS6ZRQwcmbkoee6",
+            "givenName": "Yifan",
+            "familyName": "Wu",
+            "identity": "yxw689@student.bham.ac.uk",
+            "type": "email"
+        },
+        "assertion": {
+            "image:signature": "data:image/png;base64,this is a test image",
+            "type": "Assertion",
+            "id": "http://www.birmingham.ac.uk/assertionId",
+            "issuedOn": "2017-03-12"
+        }
+    },
+    "receipt": {}
+}])

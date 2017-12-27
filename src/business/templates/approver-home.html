@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+    <title>BLOCKCHAIN-BASED EDUCATIONAL CERTIFICATES</title>
+    <!-- Bootstrap -->
+    <link href="../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/loaders.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/normal.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/jquery.jsonview.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+     <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/crypto-min.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/crypto-sha256.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/crypto-sha256-hmac.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/sha512.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/ripemd160.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/aes.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/qrcode.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/qcode-decoder.min.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/jsbn.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/ellipticcurve.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/moment.min.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/coin.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/coinbin.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/jquery.jsonview.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/hmac.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/sha256.js"></script>
+    <script type="text/javascript" src="../static/js/vendor/jsencrypt.min.js"></script>
+  </head>
+  
+  <body>
+
+	<nav id="myScrollspy" class="navbar navbar-hey navbar-static" role="navigation">
+		   <div class="navbar-header">
+		      <button class="navbar-toggle" type="button" data-toggle="collapse"
+		         data-target=".bs-js-navbar-scrollspy">
+		         <span class="sr-only">Nav</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/student-home">HOME</a>
+		   </div>
+		   <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+		   <ul class="nav navbar-nav">
+		          <li><!-- <a href="javascript:void applyCertificate()">Apply</a> -->
+			      <li class="dropdown active">
+		            <a href="#" id="navbarDrop1" class="dropdown-toggle"
+		               data-toggle="dropdown">Setting
+		               <b class="caret"></b>
+		            </a>
+		           <ul class="dropdown-menu" role="menu"
+		               aria-labelledby="navbarDrop1">
+		               <li><a data-toggle="modal" data-target="#myModal">School Setting</a></li>
+		               <li><a href="#" tabindex="-1">Personal Setting</a></li>
+		            </ul>
+		         </li>
+		         <li><a href="/about">About</a></li>
+		         <li><a href="/logout">Log out</a></li>
+	      </ul>
+	   </div>
+	</nav>
+
+	<div id="bd-pageheader">
+	      <div class="container">
+	          <div class="row">
+	            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+	                <div class="site-heading">
+	                    <h1>blockchain-based educational certificates</h1>
+	                </div>
+	            </div>
+	        </div>
+	      </div>
+	</div>
+
+	<div class="container">
+	          <table class='table table-hover zhdjsm'>
+	          <thead>
+	                  <tr>
+	                    <th>GivenName</th>
+	                    <th>FamilyName</th>
+	                    <th>Identity</th>
+	                    <th>IdentityType</th>
+	                    <th>Approved</th>
+	                    <th>Action</th>
+	                  </tr>
+	          </thead>
+	          <tbody class="sbcon">
+	            <tr><td>
+	              <div class="loadingsb" style="padding:50px 0 0px 30px;display:none;">
+	                   <div class="loader">
+	                       <div class="loader-inner ball-scale-multiple">
+	                         <div></div>
+	                         <div></div>
+	                         <div></div>
+	                         <p class="load" style="margin-left: 100px !important;padding-top:15px !important;font-size: 18px;">Loading</p>
+	                       </div>
+	                   </div>
+	             </div>
+	             </td>
+	             <td></td>
+	             <td></td>
+	             <td></td>
+	             <td></td>
+	             <td></td>
+	             </tr>
+	          </tbody>
+	        </table>
+	</div>
+
+	
+	<!-- Digital Certificate view -->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">
+	            &times;
+	          </span>
+	        </button>
+	        <h4 class="modal-title" id="myModalLabel"> 
+	          Digital Certificate View
+	        </h4>
+	      </div>
+	      <div class="modal-body">
+	          <div id="viewdata">
+			 </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">
+	          Close
+	        </button>
+<!-- 	        <input type="button" onclick ="applyCertificate();" value="Apply" id="applyId"  class="btn btn-primary" data-original-title="" title="" data-dismiss="modal">
+ -->	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- School Setting -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">
+	            &times;
+	          </span>
+	        </button>
+	        <h4 class="modal-title" id="myModalLabel"> 
+	          School Setting
+	        </h4>
+	      </div>
+	      <div class="modal-body">
+	          <div class="verifyData" id="verifyTransactionData">
+			       <form role="form" method="post" >
+					  <div class="form-group">
+					  
+					      <!-- Select Basic -->
+				          <label class="control-label">IdentityType</label>
+				          <div class="controls">
+				            <select class="form-control" id ="IdentityType">
+				    	    <option>email</option>
+				      		<option>studentId</option>
+				      		<option></option></select>
+				          </div>
+				          
+				          <!-- Text input-->
+				          <label class="control-label" for="input01">Id</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "id">
+				          </div>
+				          
+				          
+				           <!-- Text input-->
+				          <label class="control-label" for="input01">name</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "name">
+				          </div>
+				          
+				           <!-- Text input-->
+				          <label class="control-label" for="input01">type</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "type">
+				          </div>
+				          
+				           <!-- Text input-->
+				          <label class="control-label" for="input01">email</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "email">
+				          </div>
+				          
+				           <!-- Text input-->
+				          <label class="control-label" for="input01">url</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "url">
+				          </div>
+				          
+				           <!-- Text input-->
+				          <label class="control-label" for="input01">signer_pub_key</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "signer_pub_key">
+				          </div>
+				         
+	       				</div>
+					  </form>
+			 </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">
+	          Close
+	        </button>
+	        <input type="button" onclick ="applyCertificate();" value="Apply" id="applyId"  class="btn btn-primary" data-original-title="" title="" data-dismiss="modal">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	
+		<!-- School Setting -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">
+	            &times;
+	          </span>
+	        </button>
+	        <h4 class="modal-title" id="myModalLabel"> 
+	          Student Information Check page
+	        </h4>
+	        <input type="hidden" id = "hid">
+	      </div>
+	      <div class="modal-body">
+	          <div class="verifyData" id="stuInfo">
+			       <form role="form" method="post" >
+					  <div class="form-group">
+					  
+					      <!-- Select Basic -->
+				          <label class="control-label">language</label>
+				          <div class="controls">
+				            <select class="form-control" id ="language">
+				    	    <option>English</option>
+				      		<option>Chinese</option>
+				      		<option>French</option>
+				      		<option>German</option>
+				      		<option></option></select>
+				          </div>
+				          
+				          <!-- Text input-->
+				          <label class="control-label" for="input01">description</label>
+				          <div class="controls">
+				            <input type="text" placeholder="" class="form-control" id = "description">
+				          </div>
+				          
+				          <!-- Select Basic -->
+				          <label class="control-label">type</label>
+				          <div class="controls">
+				            <select class="form-control" id ="ctype">
+				    	    <option>certificate</option>
+				      		<option>contract</option>
+				      		<option></option>
+				      		</select>
+				          </div>
+				          
+			 			  <!-- Select Basic -->
+				          <label class="control-label">name</label>
+				          <div class="controls">
+				            <select class="form-control" id ="cname">
+				      		<option>Bachelor of Arts</option>
+　　                                           <option>Bachelor of Architecture</option>
+                            <option>Bachelor of Arts in Education</option>
+						　　<option>Bachelor of Business Administration</option>
+						　　<option>Bachelor of Arts in Social Work</option>
+						　　<option>Bachelor of Education</option>
+						　　<option>Bachelor of Fine Arts</option>
+						　　<option>Bachelor of General Studies</option>
+						　　<option>Bachelor of Liberal Studies</option>
+						　　<option>Bachelor of Engineering</option>
+						　　<option>Bachelor of Music</option>
+						　　<option>Bachelor of Music Education</option>
+						　　<option>Bachelor of Nursing</option>
+						　　<option>Bachelor of Professional Studies</option>
+						　　<option>Bachelor of Science in Business Administration</option>
+						　　<option>Bachelor of Science</option>
+						　　<option>Bachelor of Science in Business</option>
+						　　<option>Bachelor of Science in Education</option>
+						　　<option>Bachelor of Science in Engineering</option>
+						　　<option>Bachelor of Science in Medicine</option>
+						　　<option>Bachelor of Science in Medical Technology</option>
+						　　<option>Bachelor of Science in Nursing</option>
+						　　<option>Bachelor of Science in Social Work</option>
+						　　<option>Bachelor of Science in Technology</option>
+						　　<option>Bachelor in Social Work</option>
+						　　<option>Bachelor of Technology</option>
+						　　<option>Bachelor of Law</option>
+						　　<option>Master of Arts</option>
+						　　<option>Master of Accounting</option>
+						　　<option>Master of Arts in Education</option>
+						　　<option>Master of Architecture</option>
+						　　<option>Master of Arts in Teaching</option>
+						　　<option>Master of Business Administration</option>
+						　　<option>Master of Civil Engineering</option>
+						　　<option>Master of Chemical Engineering</option>
+						　　<option>Master of Criminal Justice</option>
+						　　<option>Master of Divinity</option>
+						　　<option>Master of Engineering</option>
+						　　<option>Master of Education</option>
+						　　<option>Master of Electrical Engineering</option>
+						　　<option>Master of Fine Arts</option>
+						　　<option>Master of Law</option>
+						　　<option>Master of Library Science</option>
+						　　<option>Master of Music</option>
+						　　<option>Master of Music Education</option>
+						　　<option>Master of Nursing</option>
+						　　<option>Master of Public Administration</option>
+						　　<option>Master of Psychology</option>
+						　　<option>Master of Science</option>
+						　　<option>Master of Science in Education</option>
+						　　<option>Master of Science in Electrical Engineering</option>
+						　　<option>Master of Science in Library Science</option>
+						　   <option>Master of Science in M??edical Technology</option>
+						　　<option>Master of Science in Nursing</option>
+						　　<option>Master of Science in Social Work</option>
+						　　<option>Master of Social Work</option>
+						　　<option>Doctor of Arts</option>
+						　　<option>Doctor of Dental Science</option>
+						　　<option>Doctor of Engineering</option>
+						　　<option>Doctor of Education</option>
+						　　<option>Doctor of Musical Arts</option>
+						　　<option>Doctor of Osteopathy</option>
+						　　<option>Doctor of Social Science</option>
+						　　<option>Doctor of Veterinary Medicine</option>
+						　　<option>Doctor of Jurisprudence</option>
+						　　<option>Doctor of Judicial Science</option>
+						　　<option>Doctor of Business Administration</option>
+　　							<option>Doctor of Accountancy</option>
+				      		<option></option>
+				      		</select>
+				          </div>
+	       				</div>
+					  </form>
+			 </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">
+	          Close
+	        </button>
+	        <input type="button" onclick ="previewCertificate();" value="Preview" id="applyId"  class="btn btn-primary" data-original-title="" title="">
+	        <input type="button" onclick ="agreedCertificate();" value="Agreed" id="applyId"  class="btn btn-primary" data-original-title="" title="" data-dismiss="modal">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<footer class="mains">
+	    <p class="copyright text-center">© 2017 <a href="http://blockcerts.ehcoo.com/">UOB BLOCKCHAIN LAB</a>. All Rights Reserved. <br>
+	    </p>
+	</footer>
+	
+	<script src="../static/bootstrap/bootstrap.min.js"></script>
+	<script src="../static/js/load.js"></script>
+	<script src="../static/js/admin.js"></script>
+	<script type="text/javascript">
+		getSchoolSetting();
+		loadAllApplyCertificateList();
+	</script>
+</body>
+</html>

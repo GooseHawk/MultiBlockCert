@@ -1,0 +1,145 @@
+2017-03-20 09:49:43,707 ERROR: Exception on /unIssueCertifacteList [GET] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\github\multiblockcerts\src\business\certifacte.py", line 95, in unIssueCertifacteList
+    records = list(cursor)
+  File "E:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "E:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "E:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "E:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "E:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "E:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: cluster0-shard-00-02-pllyi.mongodb.net:27017: [Errno 11001] getaddrinfo failed,cluster0-shard-00-01-pllyi.mongodb.net:27017: [Errno 11001] getaddrinfo failed,cluster0-shard-00-00-pllyi.mongodb.net:27017: [Errno 11001] getaddrinfo failed
+2017-03-20 12:08:02,928 ERROR: Exception on /about [GET] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\github\multiblockcerts\src\business\index.py", line 36, in about
+    return render_template('about.html')
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "E:\Python27\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: about.html
+2017-03-26 18:27:47,997 ERROR: Exception on /getRecordsAndCerts [POST] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1740, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "E:\Python27\lib\site-packages\werkzeug\wrappers.py", line 847, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "E:\Python27\lib\site-packages\werkzeug\test.py", line 871, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'dict' object is not callable
+2017-03-26 18:28:01,339 ERROR: Exception on /getRecordsAndCerts [POST] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1740, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "E:\Python27\lib\site-packages\werkzeug\wrappers.py", line 847, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "E:\Python27\lib\site-packages\werkzeug\test.py", line 871, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'dict' object is not callable
+2017-03-26 18:29:24,454 ERROR: Exception on /getRecordsAndCerts [POST] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1740, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "E:\Python27\lib\site-packages\werkzeug\wrappers.py", line 847, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "E:\Python27\lib\site-packages\werkzeug\test.py", line 871, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'dict' object is not callable
+2017-03-26 23:42:11,069 ERROR: Exception on /checkCertificateHashInMerkleTree [POST] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1740, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "E:\Python27\lib\site-packages\werkzeug\wrappers.py", line 847, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "E:\Python27\lib\site-packages\werkzeug\test.py", line 871, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'bool' object is not callable
+2017-03-27 02:01:30,842 ERROR: Exception on /about [GET] [in E:\Python27\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Python27\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\github\multiblockcerts\src\business\index.py", line 36, in about
+    return render_template('about.html')
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "E:\Python27\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "E:\Python27\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "E:\Python27\lib\site-packages\flask\templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: about.html
