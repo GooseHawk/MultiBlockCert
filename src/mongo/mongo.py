@@ -8,7 +8,7 @@ from flask import json
 
 class DB(object):
 
-    def __init__(self, host_port='127.0.0.1:27017', user=None,pwd=None, database='admin',condition=''):
+    def __init__(self, host_port='', user=None,pwd=None, database='admin',condition=''):
         connectUrl = "mongodb://"+user+":"+pwd+"@"+host_port+"/admin?"+condition
         try:
             self._conn = pymongo.MongoClient(connectUrl)
@@ -31,7 +31,7 @@ class DB(object):
         self.close()
 
 if __name__ == '__main__':
-    test = DB(host_port='cluster0-shard-00-00-pllyi.mongodb.net:27017,cluster0-shard-00-01-pllyi.mongodb.net:27017,cluster0-shard-00-02-pllyi.mongodb.net:27017', user='multi_sig', pwd='multi_sig', database='app_db',condition='ssl=true&replicaSet=Cluster0-shard-0&authSource=admin').get()
+    test = DB(host_port='', user='multi_sig', pwd='multi_sig', database='app_db',condition='ssl=true&replicaSet=Cluster0-shard-0&authSource=admin').get()
     #print test
     cursor = test.users.find({},{"_id":0})
     records = list(cursor)
